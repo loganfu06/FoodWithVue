@@ -1,8 +1,24 @@
 {% extends "base.html" %}
-
+{% load django_vite %}
 {% block content %}
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
+{% csrf_token %}
+{% comment %} <form method="post">
+{{ form.as_p }}
+<input type="submit" value="Save">
 </form>
+<br><br> {% endcomment %}
+<div id="app">
+<app></app>
+</div>
 {% endblock content %}
+{% block js %}
+  {{ block.super }}
+  <script>
+       var ext_csrf_token = '{{ csrf_token }}'
+       var ext_form = `{{ form.as_p | safe}}`
+       var ext_name = {{ object.name | safe }}
+       var ext_price = {{ object.price | safe }}
+  </script>
+  {% vite_hmr_client %}
+  {% vite_asset 'src/apps/food_edit/food_edit.js' %}
+{% endblock js %}
