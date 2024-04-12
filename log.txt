@@ -5,3 +5,7 @@
 4/11/24 Daniel - finished database diagram, started work on vue app/components.
 
 4/11/24 Logan - made basic Django views to test database, works. Need to implement Vue frontend for Food model, then work on Orders model/app.
+
+4/12/24 Daniel - Set up Vue apps/form. Errors with working/loading from Django.
+
+4/12/24 Logan - Set up django/html templates to send data to Vue. Errors with loading vue form into django template.
