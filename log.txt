@@ -1,1 +1,7 @@
 4/9/2024 logan & daniel - set up the project and started the er diagram
+
+4/11/24 Logan - set up some django models, user login works (?), need to finish models and make basic views
+
+4/11/24 Daniel - finished database diagram, started work on vue app/components.
+
+4/11/24 Logan - made basic Django views to test database, works. Need to implement Vue frontend for Food model, then work on Orders model/app.

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'food:food_list' %}">Food list</a><br/><br/>
+<a href="{% url 'food:food_update' object.id %}">Update Food</a><br/>
+<a href="{% url 'food:food_delete' object.id %}">Delete Food</a><br/>
+<h1>{{ object.name }}</h1>
+<h1>{{ object.price }}</h1>
+{% endblock content %}
