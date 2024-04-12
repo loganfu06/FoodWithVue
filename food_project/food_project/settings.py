@@ -158,6 +158,7 @@ GRAPH_MODELS = {
 LOGIN_REDIRECT_URL = "/food/"
 LOGOUT_REDIRECT_URL = "/"
 
+
 DJANGO_VITE_ASSETS_PATH = os.path.join(BASE_DIR, "core", "static", "vite")
 DJANGO_VITE_DEV_SERVER_PORT = get_secret("vite_dev_server_port")
 DJANGO_VITE_STATIC_URL_PREFIX = "vite/"
