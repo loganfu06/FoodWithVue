@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'order:order_list' %}">Order list</a><br/><br/>
+<a href="{% url 'order:order_update' object.id %}">Update order</a><br/>
+<a href="{% url 'order:order_delete' object.id %}">Delete order</a><br/>
+<h1>{{ object.customer }}</h1>
+<h1>{{ object.total_price }}</h1>
+Food:<br/>
+{% for food in object.food.all %}
+{{food.name}}<br/>
+{% endfor %}
+<br/>
+{% endblock content %}

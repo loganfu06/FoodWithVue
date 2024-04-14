@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'order:order_create' %}">New order item</a><br/><br/>
+{% for order in object_list %}
+    <a href="{% url 'order:order_detail' order.id %}">{{ order.customer }}</a><br/>
+{% endfor %}
+{% endblock content %}

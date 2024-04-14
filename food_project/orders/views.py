@@ -1,3 +1,67 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+
+from .models import Order
+from .forms import OrderForm
+
+from django.forms.models import model_to_dict
+from django.views import View
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.views.generic import TemplateView
 # Create your views here.
+
+class OrderListView(LoginRequiredMixin, ListView):
+    model = Order
+
+class OrderDetailView(LoginRequiredMixin, DetailView):
+    model = Order
+
+class OrderCreateView(LoginRequiredMixin, CreateView):
+    model = Order
+    fields = ['customer','total_price', 'food']
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(
+            self.request, messages.SUCCESS,
+            'Order for "{customer}" has been created'.format(
+                customer=self.object.customer))
+        return response
+
+    def get_success_url(self):
+    	return reverse_lazy("order:order_detail", args=[self.object.id])
+
+class OrderDeleteView(LoginRequiredMixin, DeleteView):
+    model = Order
+    success_url = reverse_lazy("order:order_list")
+
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(
+            self.request, messages.SUCCESS,
+            'Order for "{customer}" has been deleted'.format(
+                customer=self.object.customer))
+        return response
+
+class OrderUpdateView(LoginRequiredMixin, UpdateView):
+    model = Order
+    fields = ['customer','total_price', 'food']
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.add_message(
+            self.request, messages.SUCCESS,
+            'Order for "{customer}" has been updated'.format(
+                customer=self.object.customer))
+        return response
+
+    def get_success_url(self):
+    	return reverse_lazy("order:order_detail", args=[self.object.id])
