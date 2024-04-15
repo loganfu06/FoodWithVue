@@ -16,7 +16,8 @@ export default defineConfig({
     outDir: backendPath + '/core/static/vite/',
     rollupOptions: {
       input: {
-        vue_food_edit: './src/apps/food_edit/food_edit.js'
+        vue_food_edit: './src/apps/food_edit/food_edit.js',
+        vue_food_detail: './src/apps/food_detail/food_detail.js'
       }
     }
   }

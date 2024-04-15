@@ -12,5 +12,5 @@ urlpatterns = [
          name="food_update"),
     path("delete/<int:pk>", views.FoodDeleteView.as_view(),
          name="food_delete"),
-    path("movies/bis/<int:pk>", views.FoodDetailbisView.as_view(), name="food_detail_bis",),
+    path("bis/<int:pk>", views.FoodDetailbisView.as_view(), name="food_detail_bis",),
 ]

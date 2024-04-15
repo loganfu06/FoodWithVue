@@ -7,5 +7,9 @@
 {% endblock content %}
 {% block js %}
 {{ block.super }}
+<script>
+	var ext_name = '{{ object.name | safe }}';
+	var ext_price = '{{ object.price | safe }}';
+</script>
 {% vite_asset 'src/apps/food_detail/food_detail.js' %}
 {% endblock js %}

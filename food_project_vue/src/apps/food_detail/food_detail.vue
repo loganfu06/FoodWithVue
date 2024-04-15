@@ -1,5 +1,5 @@
 <template>
-    Hi, is this working?
+    
 </template>
 <script>
 export default {
@@ -8,6 +8,8 @@ components: {
 },
 data: function() {
 return {
+    food_price: ext_price,
+    food_name: ext_name,
 }
 },
 methods: {

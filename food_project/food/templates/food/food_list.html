@@ -3,6 +3,6 @@
 {% block content %}
 <a href="{% url 'food:food_create' %}">New Food item</a><br/><br/>
 {% for food in object_list %}
-    <a href="{% url 'food:food_detail' food.id %}">{{ food.name }}</a><br/>
+<a href="{% url 'food:food_detail_bis' food.id %}">{{ food.name }}</a> </br><a href="{% url 'food:food_detail' food.id %}">{{ food.name }}</a><br/>
 {% endfor %}
 {% endblock content %}

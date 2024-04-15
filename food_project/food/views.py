@@ -68,4 +68,4 @@ class FoodUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class FoodDetailbisView(TemplateView):
-    template_name = "movies/food_detailbis.html"
+    template_name = "food/food_detailbis.html"
