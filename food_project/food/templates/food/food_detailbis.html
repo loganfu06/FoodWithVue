@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load django_vite %}
+{% block content %}
+<div id="app">
+<app></app>
+</div>
+{% endblock content %}
+{% block js %}
+{{ block.super }}
+{% vite_asset 'src/apps/food_detail/food_detail.js' %}
+{% endblock js %}
