@@ -13,3 +13,5 @@
 4/14/24 Daniel - Fixed 3 errors we had with our variables. Made the form to work. Submitting the form works too. all the update and delete for the objects works. Didn't work on the orders app tho.
 
 4/14/24 Logan - Set up django views and templates for Orders app. Need to implement vue for Orders app.
+
+4/15/24 Logan - Fixed django view/template for Orders app to send proper data to Vue (food object in particular as a dictionary). Form needs to be built in Vue.
