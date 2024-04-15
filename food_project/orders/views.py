@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from .models import Order
+from food.models import Food
 from .forms import OrderForm
 
 from django.forms.models import model_to_dict
@@ -63,5 +64,19 @@ class OrderUpdateView(LoginRequiredMixin, UpdateView):
                 customer=self.object.customer))
         return response
 
+    def get_context_data(self, **kwargs):
+       context = super().get_context_data(**kwargs)
+       orders_dico = model_to_dict(self.object)
+       food = orders_dico["food"]
+       food_list = []
+       for someFood in food:
+           food_list.append({"id": someFood.id, "name": someFood.name, "price": someFood.price})
+       orders_dico["food"] = food_list
+       all_food = list(Food.objects.all().values())
+       context["orders_list"] = orders_dico
+       context["food_list"] = all_food
+       print("context", context)
+       return context
+   
     def get_success_url(self):
     	return reverse_lazy("order:order_detail", args=[self.object.id])
