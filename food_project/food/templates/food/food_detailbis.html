@@ -1,15 +1,11 @@
-{% extends "base.html" %}
-{% load django_vite %}
-{% block content %}
+{% extends "base.html" %} {% load django_vite %} {% block content %}
 <div id="app">
-<app></app>
+	<app></app>
 </div>
-{% endblock content %}
-{% block js %}
-{{ block.super }}
+{% endblock content %} {% block js %} {{ block.super }}
 <script>
 	var ext_name = '{{ object.name | safe }}';
 	var ext_price = '{{ object.price | safe }}';
+	var ext_id = '{{ object.id | safe }}';
 </script>
-{% vite_asset 'src/apps/food_detail/food_detail.js' %}
-{% endblock js %}
+{% vite_hmr_client %} {% vite_asset 'src/apps/food_detail/food_detail.js' %} {% endblock js %}
