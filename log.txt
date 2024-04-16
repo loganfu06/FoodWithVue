@@ -15,3 +15,9 @@
 4/14/24 Logan - Set up django views and templates for Orders app. Need to implement vue for Orders app.
 
 4/15/24 Logan - Fixed django view/template for Orders app to send proper data to Vue (food object in particular as a dictionary). Form needs to be built in Vue.
+
+4/15 Daniel - worked on the get request for food. Didn't finish it.
+
+4/16 Daniel - finished get request for food. works now :)
+
+4/16 Logan - worked on orders-edit vue, not working, need to fix
