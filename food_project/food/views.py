@@ -69,3 +69,19 @@ class FoodUpdateView(LoginRequiredMixin, UpdateView):
 
 class FoodDetailbisView(TemplateView):
     template_name = "food/food_detailbis.html"
+    
+class FoodDetailbisView(TemplateView):
+    template_name = "food/food_detailbis.html"
+    def get(self, request, *args, **kwargs):
+        food = get_object_or_404(Food, pk=self.kwargs["pk"])
+        return super().get(request, *args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['food_id'] = self.kwargs["pk"]
+        return context
+
+class FoodDetailJsView(View):
+    def get(self, request, *args, **kwargs):
+        food = get_object_or_404(Food, pk=self.kwargs["pk"])
+        food_js = model_to_dict(food)
+        return JsonResponse({"food": food_js})

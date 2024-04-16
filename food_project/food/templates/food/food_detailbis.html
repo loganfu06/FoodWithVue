@@ -4,8 +4,10 @@
 </div>
 {% endblock content %} {% block js %} {{ block.super }}
 <script>
-	var ext_name = '{{ object.name | safe }}';
-	var ext_price = '{{ object.price | safe }}';
 	var ext_id = '{{ object.id | safe }}';
+	var ext_food_detail_js_url = '{% url 'food:food_detail_js' food_id %}';
+	var ext_food_list_url = '{% url 'food:food_list' %}';
+    var ext_food_update_url = '{% url 'food:food_update' food_id %}';
+	var ext_food_delete_url ='{% url 'food:food_delete' food_id %}';
 </script>
 {% vite_hmr_client %} {% vite_asset 'src/apps/food_detail/food_detail.js' %} {% endblock js %}
