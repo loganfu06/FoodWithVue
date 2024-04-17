@@ -46,7 +46,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
        return context
     
     def get_success_url(self):
-    	return reverse_lazy("order:order_detail", args=[self.object.id])
+    	return reverse_lazy("order:order_detail_bis", args=[self.object.id])
 
 class OrderDeleteView(LoginRequiredMixin, DeleteView):
     model = Order
@@ -88,7 +88,7 @@ class OrderUpdateView(LoginRequiredMixin, UpdateView):
        return context
    
     def get_success_url(self):
-    	return reverse_lazy("order:order_detail", args=[self.object.id])
+    	return reverse_lazy("order:order_detail_bis", args=[self.object.id])
  
 class OrderDetailbisView(TemplateView):
     template_name = "orders/order_detailbis.html"

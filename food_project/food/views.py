@@ -36,7 +36,7 @@ class FoodCreateView(LoginRequiredMixin, CreateView):
         return response
 
     def get_success_url(self):
-    	return reverse_lazy("food:food_detail", args=[self.object.id])
+    	return reverse_lazy("food:food_detail_bis", args=[self.object.id])
 
 class FoodDeleteView(LoginRequiredMixin, DeleteView):
     model = Food
@@ -64,7 +64,7 @@ class FoodUpdateView(LoginRequiredMixin, UpdateView):
         return response
 
     def get_success_url(self):
-    	return reverse_lazy("food:food_detail", args=[self.object.id])
+    	return reverse_lazy("food:food_detail_bis", args=[self.object.id])
 
     
 class FoodDetailbisView(TemplateView):
