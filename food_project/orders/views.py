@@ -89,3 +89,29 @@ class OrderUpdateView(LoginRequiredMixin, UpdateView):
    
     def get_success_url(self):
     	return reverse_lazy("order:order_detail", args=[self.object.id])
+ 
+class OrderDetailbisView(TemplateView):
+    template_name = "orders/order_detailbis.html"
+    
+    def get(self, request, *args, **kwargs):
+        order = get_object_or_404(Order, pk=self.kwargs["pk"])
+        return super().get(request, *args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+        order = get_object_or_404(Order, pk=self.kwargs["pk"])
+        context = super().get_context_data(**kwargs)
+        orders_dico = model_to_dict(order)
+        food = orders_dico["food"]
+        food_list = []
+        for someFood in food:
+            food_list.append({"id": someFood.id, "name": someFood.name, "price": someFood.price})
+        orders_dico["food"] = food_list
+        context["orders_list"] = orders_dico
+        context['order_id'] = self.kwargs["pk"]
+        return context
+
+class OrderDetailJsView(View):
+    def get(self, request, *args, **kwargs):
+        order = get_object_or_404(Order, pk=self.kwargs["pk"])
+        order_js = model_to_dict(order)
+        return JsonResponse({"order": order_js})

@@ -66,9 +66,6 @@ class FoodUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
     	return reverse_lazy("food:food_detail", args=[self.object.id])
 
-
-class FoodDetailbisView(TemplateView):
-    template_name = "food/food_detailbis.html"
     
 class FoodDetailbisView(TemplateView):
     template_name = "food/food_detailbis.html"

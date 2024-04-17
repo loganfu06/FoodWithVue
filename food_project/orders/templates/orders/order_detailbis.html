@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% load django_vite %} {% block content %}
+<div id="app">
+	<app></app>
+</div>
+{% endblock content %} {% block js %} {{ block.super }}
+<script>
+	var ext_id = '{{ order_id | safe }}';
+    var ext_order_dico = {{ orders_list | safe }};
+	var ext_order_detail_js_url = '{% url 'order:order_detail_js' order_id %}';
+	var ext_order_list_url = '{% url 'order:order_list' %}';
+    var ext_order_update_url = '{% url 'order:order_update' order_id %}';
+	var ext_order_delete_url ='{% url 'order:order_delete' order_id %}';
+</script>
+{% vite_hmr_client %} {% vite_asset 'src/apps/order_detail/order_detail.js' %} {% endblock js %}

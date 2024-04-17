@@ -12,4 +12,6 @@ urlpatterns = [
          name="order_update"),
     path("delete/<int:pk>", views.OrderDeleteView.as_view(),
          name="order_delete"),
+    path("bis/<int:pk>", views.OrderDetailbisView.as_view(), name="order_detail_bis",),
+    path( "js/<int:pk>", views.OrderDetailJsView.as_view(), name="order_detail_js", ),
 ]
