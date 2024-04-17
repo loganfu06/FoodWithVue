@@ -28,6 +28,7 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
     model = Order
     fields = ['customer','total_price', 'food']
 
+
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.add_message(
@@ -36,6 +37,14 @@ class OrderCreateView(LoginRequiredMixin, CreateView):
                 customer=self.object.customer))
         return response
 
+    def get_context_data(self, **kwargs):
+       context = super().get_context_data(**kwargs)
+       all_food = list(Food.objects.all().values())
+       context["orders_list"] = dict(food=[])
+       context["food_list"] = all_food
+       print("context", context)
+       return context
+    
     def get_success_url(self):
     	return reverse_lazy("order:order_detail", args=[self.object.id])
 
