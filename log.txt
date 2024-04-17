@@ -23,3 +23,5 @@
 4/16 Logan - worked on orders-edit vue, not working, need to fix
 
 4/16 Logan - finished orders-edit vue, working. Need to make get vue for orders and finishing touches
+
+4/17 Daniel - Finished get request for orders with logan and added final touches at home.
