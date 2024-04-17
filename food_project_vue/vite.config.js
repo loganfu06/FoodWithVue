@@ -20,7 +20,6 @@ export default defineConfig({
         vue_order_edit: './src/apps/order_edit/order_edit.js',
         vue_food_detail: './src/apps/food_detail/food_detail.js',
         vue_order_detail: './src/apps/order_detail/order_detail.js'
-
       }
     }
   }
