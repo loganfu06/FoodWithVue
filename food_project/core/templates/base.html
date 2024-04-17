@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <title>Food Project App</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -50,6 +50,22 @@
                 </div>
             </div>
         </div>
+        <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container">
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'food:food_list' %}">Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orders:order_list' %}">Orders</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
