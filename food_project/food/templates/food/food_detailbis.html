@@ -1,11 +1,13 @@
-{% extends "base.html" %}
-{% load django_vite %}
-{% block content %}
+{% extends "base.html" %} {% load django_vite %} {% block content %}
 <div id="app">
-<app></app>
+	<app></app>
 </div>
-{% endblock content %}
-{% block js %}
-{{ block.super }}
-{% vite_asset 'src/apps/food_detail/food_detail.js' %}
-{% endblock js %}
+{% endblock content %} {% block js %} {{ block.super }}
+<script>
+	var ext_id = '{{ object.id | safe }}';
+	var ext_food_detail_js_url = '{% url 'food:food_detail_js' food_id %}';
+	var ext_food_list_url = '{% url 'food:food_list' %}';
+    var ext_food_update_url = '{% url 'food:food_update' food_id %}';
+	var ext_food_delete_url ='{% url 'food:food_delete' food_id %}';
+</script>
+{% vite_hmr_client %} {% vite_asset 'src/apps/food_detail/food_detail.js' %} {% endblock js %}
