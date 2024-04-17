@@ -21,3 +21,5 @@
 4/16 Daniel - finished get request for food. works now :)
 
 4/16 Logan - worked on orders-edit vue, not working, need to fix
+
+4/16 Logan - finished orders-edit vue, working. Need to make get vue for orders and finishing touches
