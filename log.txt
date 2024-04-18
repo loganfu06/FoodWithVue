@@ -25,3 +25,5 @@
 4/16 Logan - finished orders-edit vue, working. Need to make get vue for orders and finishing touches
 
 4/17 Daniel - Finished get request for orders with logan and added final touches at home.
+
+4/17 Logan - Final touches with nav bar and minor stuff in vue/templates. Project essentially complete.
