@@ -3,8 +3,8 @@
     <a :href="this.food_list_url">Food list</a><br /><br />
     <a :href="this.food_update_url">Update Food</a><br />
     <a :href="this.food_delete_url">Delete Food</a><br />
-    <h1>{{this.food.name}}</h1>
-    <h1>{{this.food.price}}</h1>
+    <h1>Name: {{this.food.name}}</h1>
+    <h1>Price: ${{this.food.price}}</h1>
   </div>
 </template>
 <script>

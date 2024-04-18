@@ -3,9 +3,10 @@
     <a :href="this.order_list_url">order list</a><br /><br />
     <a :href="this.order_update_url">Update order</a><br />
     <a :href="this.order_delete_url">Delete order</a><br />
-    <h1>{{ this.order.customer }}</h1>
-    <h1>{{ this.order.total_price }}</h1>
-    <li v-for="item in food">{{ item.name }} - ${{ item.price }}</li>
+    <h1>Customer: {{ this.order.customer }}</h1>
+    <h1>Total Price: ${{ this.order.total_price }}</h1>
+    <h1>Food: </h1>
+    <li v-for="item in food"><h2>{{ item.name }} - ${{ item.price }}</h2></li>
   </div>
 </template>
 <script>

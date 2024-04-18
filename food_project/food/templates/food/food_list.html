@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="{% url 'food:food_create' %}">New Food item</a><br/><br/>
+<br>
+<a href="{% url 'food:food_create' %}"> <button>New Food item </button></a><br/><br/>
+Food: <br>
 {% for food in object_list %}
 <a href="{% url 'food:food_detail_bis' food.id %}">{{ food.name }}</a><br/>
 {% endfor %}
